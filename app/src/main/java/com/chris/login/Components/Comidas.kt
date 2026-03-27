@@ -1,5 +1,6 @@
 package com.chris.login.Components
 
+import com.chris.login.R
 import com.chris.login.Utilities.Producto
 
 class Comidas {
@@ -9,35 +10,35 @@ class Comidas {
                 1,
                 "Pollo Asado",
                 200.45,
-                "PolloAsado.png",
+                R.drawable.polloasado,
                 "Pollo Asado entero con arroz."
             ),
             Producto(
                 2,
                 "Pizza Pepperoni",
                 200.0,
-                "pizza.png",
+                R.drawable.pizza,
                 "Masa artesanal con salsa de tomate y pepperoni."
             ),
             Producto(
                 3,
                 "Tacos al Pastor",
                 85.0,
-                "tacosPastor.png",
+                R.drawable.tacospastor,
                 "5 tacos con piña, cebolla y cilantro."
             ),
             Producto(
                 4,
                 "Tacos de carne asada",
                 120.0,
-                "tacosAsada.png",
+                R.drawable.tacosasada,
                 "3 Tacos de carne asada con todo y una coca."
             ),
             Producto(
                 5,
                 "Sushi Roll",
                 180.0,
-                "sushi.png",
+                R.drawable.sushi,
                 "Roll de salmón y aguacate con queso crema."
             )
         )

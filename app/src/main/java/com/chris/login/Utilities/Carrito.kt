@@ -1,7 +1,6 @@
-package com.chris.login.Screens
+package com.chris.login.Utilities
 
 import androidx.compose.runtime.mutableStateListOf
-import com.chris.login.Utilities.Producto
 
 object Carrito {
     val productos = mutableStateListOf<Producto>()
