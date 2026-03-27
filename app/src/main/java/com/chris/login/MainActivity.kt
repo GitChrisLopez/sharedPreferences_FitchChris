@@ -3,25 +3,17 @@ package com.chris.login
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.runtime.*
-import androidx.compose.material3.*
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.foundation.layout.*
+import androidx.compose.material3.*
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.*
+import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
 import com.chris.login.ui.theme.LoginTheme
-import androidx.compose.ui.text.input.PasswordVisualTransformation
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,20 +24,21 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             var screenState by remember {
-                mutableStateOf(if(prefs.isLoggedIn()) "HOME" else "LOGIN")
+                mutableStateOf(if (prefs.isLoggedIn()) "HOME" else "LOGIN")
             }
 
-            if (screenState == "LOGIN"){
+            if (screenState == "LOGIN") {
                 LoginScreen(onLoginClick = {
-                    prefs.saveLoginStatus(true)
-                    screenState = "HOME"
+                    prefs.saveLoginStatus(isLoggedIn = true)
+                    screenState= "HOME"
                 })
-            }else{
+            } else {
                 HomeScreen(onLogoutClick = {
                     prefs.logout()
                     screenState = "LOGIN"
                 })
             }
+
         }
     }
 }
@@ -64,6 +57,7 @@ fun LoginScreen(onLoginClick: () -> Unit){
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(text = "Pantalla de Login", style = MaterialTheme.typography.headlineMedium)
+
         Spacer(modifier = Modifier.height(20.dp))
 
         OutlinedTextField(
@@ -85,7 +79,7 @@ fun LoginScreen(onLoginClick: () -> Unit){
             singleLine = true
         )
 
-        if(errorMessage.isNotEmpty()) {
+        if (errorMessage.isNotEmpty()) {
             Text(
                 text = errorMessage,
                 color = MaterialTheme.colorScheme.error,
@@ -97,14 +91,14 @@ fun LoginScreen(onLoginClick: () -> Unit){
 
         Button(
             onClick = {
-                if (email == "admin@email.com" && password == "1234"){
+                if (email == "admin@email.com" && password == "1234") {
                     onLoginClick()
                 } else {
-                    errorMessage = "Credenciales incorrectas. Intena de nuevo."
+                    errorMessage = "Credenciales incorrectas. Intenta de nuevo."
                 }
             },
             modifier = Modifier.fillMaxWidth()
-        ){
+        ) {
             Text("Entrar")
         }
     }
@@ -120,7 +114,10 @@ fun HomeScreen(onLogoutClick: () -> Unit){
         Text(text = "¡Bienvenido al Home!", style = MaterialTheme.typography.headlineMedium)
         Spacer(modifier = Modifier.height(16.dp))
         Button(onClick = { onLogoutClick() }) {
-            Text("Cerrar Sesion")
+            Text("Cerrar Sesión")
         }
     }
 }
+
+
+
