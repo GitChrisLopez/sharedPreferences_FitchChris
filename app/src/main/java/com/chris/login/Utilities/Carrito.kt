@@ -13,8 +13,8 @@ object Carrito {
         productos.remove(producto)
     }
 
-    fun total(): Double {
-        return productos.sumOf { it.precio }
+    fun total(): Float {
+        return productos.sumOf { it.price.toDouble() }.toFloat()
     }
 
     fun cantidad(): Int {

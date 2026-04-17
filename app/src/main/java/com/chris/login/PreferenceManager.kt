@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.chris.login.Utilities.Producto
 
+
 class PreferenceManager(context: Context) {
     private val prefs = context.getSharedPreferences("TiendaPrefs", Context.MODE_PRIVATE)
     private val sharedPreferences: SharedPreferences =

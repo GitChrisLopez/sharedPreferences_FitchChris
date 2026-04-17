@@ -9,35 +9,35 @@ class Comidas {
             Producto(
                 1,
                 "Pollo Asado",
-                200.45,
+                200f,
                 R.drawable.polloasado,
                 "Pollo Asado entero con arroz."
             ),
             Producto(
                 2,
                 "Pizza Pepperoni",
-                200.0,
+                200f,
                 R.drawable.pizza,
                 "Masa artesanal con salsa de tomate y pepperoni."
             ),
             Producto(
                 3,
                 "Tacos al Pastor",
-                85.0,
+                85f,
                 R.drawable.tacospastor,
                 "5 tacos con piña, cebolla y cilantro."
             ),
             Producto(
                 4,
                 "Tacos de carne asada",
-                120.0,
+                120f,
                 R.drawable.tacosasada,
                 "3 Tacos de carne asada con todo y una coca."
             ),
             Producto(
                 5,
                 "Sushi Roll",
-                180.0,
+                180f,
                 R.drawable.sushi,
                 "Roll de salmón y aguacate con queso crema."
             )
@@ -50,7 +50,7 @@ class Comidas {
             listaComidas
         } else {
             listaComidas.filter {
-                it.nombre.contains(texto, ignoreCase = true)
+                it.name.contains(texto, ignoreCase = true)
             }
         }
     }
