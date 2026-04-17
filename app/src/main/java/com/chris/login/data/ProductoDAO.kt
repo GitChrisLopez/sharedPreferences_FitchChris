@@ -1,7 +1,6 @@
 package com.chris.login.data
 
 import android.content.ContentValues
-import com.chris.login.Utilities.Producto
 import com.chris.login.data.StoreContract.ProductsEntry
 
 

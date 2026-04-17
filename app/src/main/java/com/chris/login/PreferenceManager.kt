@@ -2,7 +2,7 @@ package com.chris.login
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.chris.login.Utilities.Producto
+import com.chris.login.data.Producto
 
 
 class PreferenceManager(context: Context) {
@@ -23,12 +23,12 @@ class PreferenceManager(context: Context) {
     }
 
     // Metodos para el carrito (Cart), la parte 2 de la actividad
-    fun saveCart(productos: List<com.chris.login.Utilities.Producto>) {
+    fun saveCart(productos: List<Producto>) {
         val ids = productos.joinToString(",") { it.id.toString() }
         prefs.edit().putString("cart_ids", ids).apply()
     }
 
-    fun getCart(allProducts: List<com.chris.login.Utilities.Producto>): List<com.chris.login.Utilities.Producto> {
+    fun getCart(allProducts: List<Producto>): List<Producto> {
         val idsString = prefs.getString("cart_ids", "") ?: ""
         if (idsString.isEmpty()) return emptyList()
 

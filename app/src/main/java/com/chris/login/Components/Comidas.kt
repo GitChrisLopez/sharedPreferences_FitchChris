@@ -1,7 +1,7 @@
 package com.chris.login.Components
 
 import com.chris.login.R
-import com.chris.login.Utilities.Producto
+import com.chris.login.data.Producto
 
 class Comidas {
     companion object {

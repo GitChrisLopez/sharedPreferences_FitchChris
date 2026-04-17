@@ -1,4 +1,4 @@
-package com.chris.login.Utilities
+package com.chris.login.data
 
 data class Producto(
     val id: Int,
