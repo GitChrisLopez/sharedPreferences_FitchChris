@@ -32,7 +32,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.chris.login.R
 import com.chris.login.data.Carrito
-import com.chris.login.data.Producto
+import com.chris.login.domain.Producto
 
 @Composable
 fun HomeScreen(
@@ -89,9 +89,12 @@ fun HomeScreen(
                     .padding(vertical = 4.dp)
                     .clickable { onProductClick(producto) }) {
 
+
+                    val imageRes = producto.image?.toIntOrNull() ?: R.drawable.muffin //esto arregla el error de la imagen la vdd es raro
+
+
                     Row(Modifier.padding(8.dp), verticalAlignment = Alignment.CenterVertically) {
-                        Image(painter = painterResource(
-                            id = producto.image),
+                        Image(painter = painterResource(id = imageRes),
                             contentDescription = null,
                             modifier = Modifier.size(64.dp))
 

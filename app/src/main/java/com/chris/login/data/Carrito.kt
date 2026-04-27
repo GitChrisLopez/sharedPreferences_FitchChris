@@ -1,6 +1,7 @@
 package com.chris.login.data
 
 import androidx.compose.runtime.mutableStateListOf
+import com.chris.login.domain.Producto
 
 object Carrito {
     val productos = mutableStateListOf<Producto>()

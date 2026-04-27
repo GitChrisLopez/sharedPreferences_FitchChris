@@ -9,8 +9,8 @@ class DatabaseHelper(context: Context):
     SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION){
 
     companion object{
-        private const val DATABASE_NAME="store.db"
-        private const val DATABASE_VERSION = 1
+        private const val DATABASE_NAME="cheezery.db"
+        private const val DATABASE_VERSION = 2 // esto se debe cambiar q no se me olvide
     }
 
     // Base de datos
@@ -20,11 +20,12 @@ class DatabaseHelper(context: Context):
         // Creamos la tabla
         db.execSQL(
             """CREATE TABLE ${ProductsEntry.TABLE_NAME} (
-            ${ProductsEntry.COLUMN_ID} INTEGER PRIMARY KEY AUTOINCREMENT,
+                    ${ProductsEntry.COLUMN_ID} INTEGER PRIMARY KEY AUTOINCREMENT,
             ${ProductsEntry.COLUMN_NAME} TEXT NOT NULL,
-            ${ProductsEntry.COLUMN_IMAGE} INTEGER,
+            ${ProductsEntry.COLUMN_IMAGE} TEXT,
             ${ProductsEntry.COLUMN_PRICE} REAL NOT NULL,
-            ${ProductsEntry.COLUMN_DESCRIPTION} TEXT
+            ${ProductsEntry.COLUMN_DESCRIPTION} TEXT,
+            ${ProductsEntry.COLUMN_TYPE} TEXT NOT NULL
             )
             """.trimIndent()
         )

@@ -8,5 +8,6 @@ object StoreContract {
         const val COLUMN_PRICE= "productPrice"
         const val COLUMN_IMAGE= "productImage"
         const val COLUMN_DESCRIPTION= "productDescription"
+        const val COLUMN_TYPE = "productType"
     }
 }

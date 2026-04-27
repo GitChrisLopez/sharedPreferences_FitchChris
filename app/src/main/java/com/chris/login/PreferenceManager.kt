@@ -2,7 +2,7 @@ package com.chris.login
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.chris.login.data.Producto
+import com.chris.login.domain.Producto
 
 
 class PreferenceManager(context: Context) {

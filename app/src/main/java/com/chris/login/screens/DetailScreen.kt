@@ -17,7 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.chris.login.data.Producto
+import com.chris.login.domain.Producto
 import com.chris.login.R
 
 
@@ -30,8 +30,9 @@ fun DetailScreen(producto: Producto, onBack: () -> Unit, onAdd: () -> Unit) {
 
         Spacer(Modifier.height(16.dp))
 
-        Image(painter = painterResource(
-            id = producto.image),
+        val imageRes = producto.image?.toIntOrNull() ?: R.drawable.muffin
+
+        Image(painter = painterResource(id = imageRes),
             contentDescription = null,
             modifier = Modifier
                 .size(200.dp)
@@ -39,7 +40,7 @@ fun DetailScreen(producto: Producto, onBack: () -> Unit, onAdd: () -> Unit) {
 
         Text(producto.name, style = MaterialTheme.typography.headlineLarge)
         Text("$${producto.price}", color = MaterialTheme.colorScheme.primary)
-        Text(producto.description, Modifier.padding(vertical = 16.dp))
+        producto.description?.let { Text(it, Modifier.padding(vertical = 16.dp)) }
 
         Spacer(Modifier.weight(1f))
 
@@ -60,7 +61,8 @@ fun DetailScreenPreview() {
         name = "Pizza",
         price = 120f,
         description = "una pizza",
-        image = R.drawable.pizza
+        image = R.drawable.pizza.toString(),
+        type = "Delicious"
     )
 
     DetailScreen(
