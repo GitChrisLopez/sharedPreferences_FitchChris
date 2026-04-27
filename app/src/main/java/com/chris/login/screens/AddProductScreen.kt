@@ -34,7 +34,7 @@ import com.chris.login.viewmodel.ProductViewModel
 @Composable
 fun AddProductScreen(
     innerPadding: PaddingValues,
-    viewModel: ProductViewModel = viewModel(),
+    viewModel: ProductViewModel,
     onNavigateBack: () -> Unit
 ) {
     var name by remember { mutableStateOf("") }

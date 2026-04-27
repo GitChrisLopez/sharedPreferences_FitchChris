@@ -76,19 +76,21 @@ fun AppNavigation() {
         // lista de productos
         composable(
             route = "products/{categoryType}",
-            // argumento que buscamos como si fuera url, aca pues seria categorytype
             arguments = listOf(navArgument("categoryType") { type = NavType.StringType })
         ) { backStackEntry ->
 
-            // aca se saca la categoria
             val categoryType = backStackEntry.arguments?.getString("categoryType") ?: "Hot drinks"
 
+            // cargamos los datos
+            LaunchedEffect(categoryType) {
+                viewModel.loadProductsByType(categoryType)
+            }
 
+            // y ya sale el estado de los productos asi bien y se muestran en pantalla
             ProductsScreen(
                 categoryType = categoryType,
                 innerPadding = PaddingValues(0.dp),
-                // lista vacia mock
-                products = emptyList()
+                products = viewModel.productsListState
             )
         }
 
@@ -96,6 +98,7 @@ fun AppNavigation() {
         composable("addProduct") {
             AddProductScreen(
                 innerPadding = PaddingValues(0.dp),
+                viewModel = viewModel,
                 onNavigateBack = { navController.popBackStack() }
             )
         }
